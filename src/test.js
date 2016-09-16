@@ -1,17 +1,23 @@
 System.register([], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var testSetup;
+    var numbersToLcd;
     return {
         setters:[],
         execute: function() {
-            testSetup = (function () {
-                function testSetup() {
+            numbersToLcd = (function () {
+                function numbersToLcd() {
                 }
-                testSetup.isWorking = true;
-                return testSetup;
+                numbersToLcd.translateNumber = function (number) {
+                    if (number === 2) {
+                        return " _ \n _|\n|_ ";
+                    }
+                    return "   \n  |\n  |";
+                };
+                numbersToLcd.isWorking = true;
+                return numbersToLcd;
             }());
-            exports_1("testSetup", testSetup);
+            exports_1("numbersToLcd", numbersToLcd);
         }
     }
 });
