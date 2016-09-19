@@ -19,7 +19,7 @@ System.register(["../src/test"], function(exports_1, context_1) {
                     expect(test_1.numbersToLcd.translateNumber(2)).toEqual(" _ \n _|\n|_ ");
                 });
                 it("should return lcd 11 for number 11", function () {
-                    expect(test_1.numbersToLcd.translateNumber(11)).toEqual("      \n  |  |\n  |  |");
+                    expect(test_1.numbersToLcd.translateNumber(12)).toEqual("      \n  |  |\n  |  |");
                 });
             });
         }
