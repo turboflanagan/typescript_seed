@@ -1,2 +1,5 @@
 .gitignore
 node_modules
+ref.ts
+ref.js
+ref.js.map

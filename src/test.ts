@@ -1,25 +1,25 @@
-export class numbersToLcd {
-    static isWorking = true;
+export class NumbersToLcd {
 
-    static numberLcdRepresentation: any = {
-        1:  "   \n" +
-            "  |\n" +
-            "  |",
+    static translateNumber(number: number): string {
+        let top: string = "";
+        let middle: string = "";
+        let bottom: string = "";
+        let newLine: string = "\n";
+        let lcdNumber: any = {
+            1: ["   ",
+                "  |",
+                "  |"],
+            2: [" _ ",
+                " _|",
+                "|_ "]
+        };
 
-        2:  " _ \n" +
-            " _|\n" +
-            "|_ "
-     };
-
-    static translateNumber(number) {
-        let stringOfNumber: string = number.toString().split("");
-        let lcdNumber: any = "";
-
-        for (let key in this.numberLcdRepresentation) {
-            if (this.numberLcdRepresentation.hasOwnProperty(number)) {
-                lcdNumber += this.numberLcdRepresentation[number];
-            }
-            return lcdNumber;
+        for (let digit of number.toString()) {
+            top += lcdNumber[digit][0];
+            middle += lcdNumber[digit][1];
+            bottom += lcdNumber[digit][2];
+            console.log(top + newLine + middle + newLine + bottom);
         }
+        return top + newLine + middle + newLine + bottom;
     }
 }

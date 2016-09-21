@@ -1,35 +1,38 @@
 System.register([], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var numbersToLcd;
+    var NumbersToLcd;
     return {
         setters:[],
         execute: function() {
-            numbersToLcd = (function () {
-                function numbersToLcd() {
+            NumbersToLcd = (function () {
+                function NumbersToLcd() {
                 }
-                numbersToLcd.translateNumber = function (number) {
-                    var stringOfNumber = number.toString().split("");
-                    var lcdNumber = "";
-                    for (var key in this.numberLcdRepresentation) {
-                        if (this.numberLcdRepresentation.hasOwnProperty(number)) {
-                            lcdNumber += this.numberLcdRepresentation[number];
-                        }
-                        return lcdNumber;
+                NumbersToLcd.translateNumber = function (number) {
+                    var top = "";
+                    var middle = "";
+                    var bottom = "";
+                    var newLine = "\n";
+                    var lcdNumber = {
+                        1: ["   ",
+                            "  |",
+                            "  |"],
+                        2: [" _ ",
+                            " _|",
+                            "|_ "]
+                    };
+                    for (var _i = 0, _a = number.toString(); _i < _a.length; _i++) {
+                        var digit = _a[_i];
+                        top += lcdNumber[digit][0];
+                        middle += lcdNumber[digit][1];
+                        bottom += lcdNumber[digit][2];
+                        console.log(top + newLine + middle + newLine + bottom);
                     }
+                    return top + newLine + middle + newLine + bottom;
                 };
-                numbersToLcd.isWorking = true;
-                numbersToLcd.numberLcdRepresentation = {
-                    1: "   \n" +
-                        "  |\n" +
-                        "  |",
-                    2: " _ \n" +
-                        " _|\n" +
-                        "|_ "
-                };
-                return numbersToLcd;
+                return NumbersToLcd;
             }());
-            exports_1("numbersToLcd", numbersToLcd);
+            exports_1("NumbersToLcd", NumbersToLcd);
         }
     }
 });
